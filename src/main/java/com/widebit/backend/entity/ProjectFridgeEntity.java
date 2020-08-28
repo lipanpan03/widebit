@@ -11,9 +11,11 @@ public class ProjectFridgeEntity {
     private int drawerCount;
     private int dishxCount;
     private int dishyCount;
+    private String fridgeId;
 
     @Id
     @Column(name = "id")
+    @GeneratedValue()
     public int getId() {
         return id;
     }
@@ -77,5 +79,15 @@ public class ProjectFridgeEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, environment, drawerCount, dishxCount, dishyCount);
+    }
+
+    @Basic
+    @Column(name = "fridge_id")
+    public String getFridgeId() {
+        return fridgeId;
+    }
+
+    public void setFridgeId(String fridgeId) {
+        this.fridgeId = fridgeId;
     }
 }

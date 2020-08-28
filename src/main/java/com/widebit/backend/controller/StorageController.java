@@ -16,8 +16,8 @@ public class StorageController {
     private IStorageService storageService;
 
     @PostMapping(value = "/laboratory/storage/addition/fridge")
-    public JSONObject addFridge(@RequestParam("id") int id, @RequestParam("environment") String environment, @RequestParam("drawer_count") int drawerCount, @RequestParam("dishx_count") int dishxCount, @RequestParam("dishy_count") char dishyCount){
-        return storageService.addFridge(id,environment,drawerCount,dishxCount,dishyCount-'A'+1);
+    public JSONObject addFridge(@RequestParam("fridge_id") String fridgeId, @RequestParam("environment") String environment, @RequestParam("drawer_count") int drawerCount, @RequestParam("dishx_count") int dishxCount, @RequestParam("dishy_count") char dishyCount){
+        return storageService.addFridge(fridgeId,environment,drawerCount,dishxCount,dishyCount-'A'+1);
     }
 
     @PostMapping(value = "/laboratory/storage/addition/drawer")
@@ -33,12 +33,12 @@ public class StorageController {
     }
 
     @PostMapping(value = "/laboratory/storage/drawers/")
-    public JSONObject findDrawers(@RequestParam("id")int id){
-        return storageService.findDrawers(id);
+    public JSONObject findDrawers(@RequestParam("fridge_id")String fridgeId){
+        return storageService.findDrawers(fridgeId);
     }
 
     @PostMapping(value = "/laboratory/storage/dishes/")
-    public JSONObject findDishes(@RequestParam("fridge_id")int fridge_id,@RequestParam("drawer_id")int drawer_id){
+    public JSONObject findDishes(@RequestParam("fridge_id")String fridge_id,@RequestParam("drawer_id")int drawer_id){
         return storageService.findDishesByFridgeIDAndDrawerId(fridge_id,drawer_id);
     }
 }

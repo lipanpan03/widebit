@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 public interface IStorageService {
 
-    JSONObject addFridge(int id, String environment, int drawerCount, int dishxCount, int dishyCount);
+    JSONObject addFridge(String fridgeId, String environment, int drawerCount, int dishxCount, int dishyCount);
 
     JSONObject addDrawer(int id,int drawer);
 
@@ -13,7 +13,7 @@ public interface IStorageService {
 
     JSONObject notFoundData();
 
-    JSONObject findDrawers(int fridgeId);
+    JSONObject findDrawers(String fridgeId);
 
-    JSONObject findDishesByFridgeIDAndDrawerId(int fridgeId,int drawerId);
+    JSONObject findDishesByFridgeIDAndDrawerId(String fridgeId,int drawerId);
 }

@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FridgeRepository extends JpaRepository<ProjectFridgeEntity,Integer> {
 
+    ProjectFridgeEntity findByFridgeId(String fridgeId);
 }
